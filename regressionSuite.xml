@@ -5,11 +5,7 @@
 		<classes>
 			<class name="PartnerPortal.US01.TestCases.TC01" />
 			<class name="PartnerPortal.US01.TestCases.TC02" />
-			<class name="PartnerPortal.US01.TestCases.TC03" />
-			<class name="PartnerPortal.US01.TestCases.TC04" />
-			<class name="PartnerPortal.US01.TestCases.TC05" />
-			<class name="PartnerPortal.US01.TestCases.TC06" />
-			<class name="PartnerPortal.US01.TestCases.TC07" />
+
 		</classes>
 	</test>
 </suite> 

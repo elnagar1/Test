@@ -1,11 +1,14 @@
 package PartnerPortal.US01.TestCases;
 
+import Framework.Web.Driver_Manager;
 import Framework.Web.TestBaseWeb;
 import PartnerPortal.US01.ViewModel.LoginWebPageView;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class  TC01 extends TestBaseWeb {
+import java.sql.DriverManager;
+
+public class TC01  {
 
     LoginWebPageView loginPage;
 
@@ -13,7 +16,8 @@ public class  TC01 extends TestBaseWeb {
     @Test(priority = 1)
     public void WrongPassword() throws InterruptedException {
       //  driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
-        loginPage = new LoginWebPageView(driver);
+
+        loginPage = new LoginWebPageView(Driver_Manager.getDriver());
         loginPage.AddUserName("dairyqueen");
         loginPage.AddPassword("202020");
 

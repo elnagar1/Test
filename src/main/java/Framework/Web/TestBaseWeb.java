@@ -2,6 +2,7 @@ package Framework.Web;
 
 import Courier_App.US01.ViewModel.LoginPageView;
 import Framework.Helper;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,12 +18,12 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBaseWeb {
     public static WebDriver driver;
-      LoginPageView loginPage;
+    LoginPageView loginPage;
 
     public String USERNAME = PageBaseWeb.reader.getR_User();
     public String ACCESS_KEY = PageBaseWeb.reader.getR_Password();
     String browser = PageBaseWeb.reader.getBrowser().toLowerCase();
-   // public static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
+    // public static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
 
     //مؤجل
     /*
@@ -48,33 +49,31 @@ public class TestBaseWeb {
 */
 
     @BeforeClass
-    public void startDriver()
-    {
+    public void startDriver() {
+        if (driver == null) {
+            System.out.println("Selected Browser is: " + browser);
 
-        System.out.println("Selected Browser is: " + browser);
+            if (browser.equalsIgnoreCase("chrome")) {
 
-        if (browser.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                System.out.println("Chrome Browser is Started" + driver.hashCode());
 
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            System.out.println("Chrome Browser is Started" + driver.hashCode());
+            } else if (browser.equalsIgnoreCase("firefox")) {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                System.out.println("Chrome Browser is Started" + driver.hashCode());
 
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-            System.out.println("Chrome Browser is Started" + driver.hashCode());
-
-        } else if (browser.equalsIgnoreCase("ie")) {
-            WebDriverManager.iedriver().setup();
-            driver = new InternetExplorerDriver();
-            System.out.println("Chrome Browser is Started" + driver.hashCode());
+            } else if (browser.equalsIgnoreCase("ie")) {
+                WebDriverManager.iedriver().setup();
+                driver = new InternetExplorerDriver();
+                System.out.println("Chrome Browser is Started" + driver.hashCode());
+            }
         }
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-      //  driver.navigate().to("https://dashboard-dev.shgardi.app/auth/login");
-        System.out.println("Open: " + driver.getCurrentUrl());
-        driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
+
+
 
     }
 

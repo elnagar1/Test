@@ -18,7 +18,7 @@ public class TC01 extends TestBaseWeb {
 
     @Test
     public void testUntitledTestCase() throws IOException {
-    UserModel users  =  UserModel.reader().get(0);
+        UserModel users  =  UserModel.reader().get(0);
 
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys(users.getEmail());

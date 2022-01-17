@@ -1,6 +1,6 @@
-package Courier_App.US01.TestCases;
+package Dashboard.US01.TestCases;
 
-import Courier_App.US01.ViewModel.LoginPageView;
+import Dashboard.US01.ViewModel.LoginPageView;
 import Framework.Web.TestBaseWeb;
 import org.junit.Test;
 import org.testng.Assert;

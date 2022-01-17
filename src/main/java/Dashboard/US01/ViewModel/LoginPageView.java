@@ -1,4 +1,4 @@
-package Courier_App.US01.ViewModel;
+package Dashboard.US01.ViewModel;
 
 import Framework.Web.PageBaseWeb;
 import org.openqa.selenium.WebDriver;

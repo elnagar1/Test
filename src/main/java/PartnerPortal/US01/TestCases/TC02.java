@@ -6,14 +6,14 @@ import PartnerPortal.US01.ViewModel.LoginWebPageView;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC02  {
+public class TC02 extends TestBaseWeb {
 
     LoginWebPageView loginPage;
-
+//Driver_Manager.getDriver()
     @Test(priority = 2)
     public void UserNotRegistered() throws InterruptedException {
-       // driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
-        loginPage = new LoginWebPageView(Driver_Manager.getDriver());
+        driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
+        loginPage = new LoginWebPageView(driver);
         loginPage.AddUserName("rest");
         loginPage.AddPassword("100100");
         loginPage.ClickLogin();

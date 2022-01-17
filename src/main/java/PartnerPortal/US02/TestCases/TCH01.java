@@ -1,16 +1,14 @@
 package PartnerPortal.US02.TestCases;
 
 import Framework.Web.TestBaseWeb;
-import PartnerPortal.US01.ViewModel.LoginWebPageView;
 import PartnerPortal.US02.ViewModel.SignUpWebPageView;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC01 extends TestBaseWeb {
+public class TCH01 extends TestBaseWeb {
 
     SignUpWebPageView signUpPage;
 

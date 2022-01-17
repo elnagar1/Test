@@ -5,7 +5,7 @@ import PartnerPortal.US01.ViewModel.LoginWebPageView;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC07 extends TestBaseWeb {
+public class TCH07 extends TestBaseWeb {
 
     LoginWebPageView loginPage;
 

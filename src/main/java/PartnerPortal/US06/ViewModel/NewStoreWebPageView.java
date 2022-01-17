@@ -2,6 +2,7 @@ package PartnerPortal.US06.ViewModel;
 
 import Framework.Web.PageBaseWeb;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,205 +20,220 @@ public class NewStoreWebPageView extends PageBaseWeb {
     @FindBy(id = "password")
     public WebElement password;
     @FindBy(id = "btn_login kt_login_signin_submit")
-    public WebElement login;
-    @FindBy(xpath = "//*[@id=\"kt_aside_menu\"]/ul/li[3]/a/i[1]")
-    public WebElement catalog;
-    @FindBy(xpath = "//*[@id=\"kt_aside_menu\"]/ul/li[3]/div/ul/li[5]/a/span")
-    public WebElement product;
-    @FindBy(xpath = "//*[@id=\"kt_content\"]/kt-catalog/kt-product-list/div[3]/div/kt-generic-table/div/div[1]/div[2]/button/span")
-    public WebElement createproduct;
-    @FindBy(id = "code")
+    public WebElement loginbutton;
+    @FindBy(xpath = "/html/body/kt-base/div/div/kt-aside-left/div/div/div/ul/li[2]/a/i[1]")
+    public WebElement storeManagment;
+    @FindBy(xpath = "//*[@id=\"kt_aside_menu\"]/ul/li[2]/div/ul/li/a/i")
+    public WebElement stores;
+    @FindBy(xpath = "//*[@id=\"kt_content\"]/kt-store-main/kt-store-list/div[2]/div/kt-generic-table/div/div[1]/div[2]/button[2]")
+    public WebElement edit;
+    @FindBy(name = "username")
+    public WebElement username3;
+    @FindBy(name = "userStoreName")
+    public WebElement userstorename;
+    @FindBy(id = "email")
+    public WebElement email;
+    @FindBy(xpath = "//*[@id=\"select_code\"]/div/div[2]")
+    public WebElement select;
+    @FindBy(xpath = "//*[@id=\"mat-option-5\"]/span")
     public WebElement code;
-    @FindBy(id = "nameEN")
-    public WebElement englishname;
+    @FindBy(name = "phoneNumber")
+    public WebElement phonenumber;
+    @FindBy(name = "newpassword")
+    public WebElement newpassword;
+    @FindBy(id = "confirmPassword")
+    public WebElement confirmpassword;
+    @FindBy(id = "btn_proceed")
+    public WebElement procced;
+    @FindBy(id = "storeCode")
+    public WebElement storecode;
+    @FindBy(id = "commercialRegistration")
+    public WebElement commercialRegistration;
+    @FindBy(id = "nameEn")
+    public WebElement nameenglish;
     @FindBy(id = "nameAr")
-    public WebElement arabicname;
+    public WebElement namearabic;
     @FindBy(id = "descriptionEn")
-    public WebElement englishdescription;
+    public WebElement descriptionEnglish;
     @FindBy(id = "descriptionAr")
-    public WebElement arabicdescription;
-    @FindBy(id = "ordering")
-    public WebElement ordering;
-    @FindBy(xpath = "//*[@id=\"select_size_type\"]/div/div[2]/div")
-    public WebElement selectsizetype;
-    @FindBy(xpath = "/html/body/div[4]/div[4]/div/div/div/mat-option/span")
-    public WebElement sizetype;
-    @FindBy(xpath = "//*[@id=\"select_size\"]/div/div[2]")
-    public WebElement selectsize;
-    @FindBy(xpath = "/html/body/div[4]/div[4]/div/div/div/mat-option/span")
-    public WebElement size;
-    @FindBy(xpath = "//*[@id=\"select_tags\"]/div/div[2]/div")
-    public WebElement selecttag;
-    @FindBy(xpath = "//*[@id=\"mat-option-288\"]/span")
-    public WebElement tag;
-    @FindBy (xpath = "/html/body/div[4]/div[2]/div/mat-dialog-container/kt-create-product/mat-horizontal-stepper/div[2]/div[1]/form/div[7]/div[1]/mat-form-field/div/div[1]/div/mat-select")
-    public WebElement selectcategory;
-    @FindBy(xpath = "/html/body/div[3]/div[4]/div/div/div/mat-option[1]/span")
-    public WebElement category;
-    @FindBy(id = "unitPrice")
-    public WebElement unitprice;
-    @FindBy(id = "product_img")
-    public WebElement productimage;
+    public WebElement descriptionArabic;
+    @FindBy(xpath = "//*[@id=\"MapUrl\"]")
+    public WebElement mapurl;
+    @FindBy(xpath = "//*[@id=\"hotline\"]")
+    public WebElement hotline;
+    @FindBy(id = "check_active isActivated")
+    public WebElement active;
+    @FindBy(name = "storeLogo")
+    public WebElement storelogo;
+    @FindBy(name = "commericalRegisterationPhoto")
+    public WebElement commericalRegisterationPhoto;
+    @FindBy(name = "storeCoverImage")
+    public WebElement storecover;
+    @FindBy(id = "btn_proceed")
+    public WebElement procced1;
     @FindBy(id = "btn_save")
-    public WebElement buttonsave;
-    @FindBy(xpath = "/html/body/kt-base/div/div/div/div[2]/div/kt-catalog/kt-product-list/div[3]/div/kt-generic-table/div/div[2]/table/tbody/tr[4]/td[8]/button[2]/span/mat-icon")
+    public WebElement save1;
+    @FindBy(xpath = "/html/body/kt-base/div/div/div/div[2]/div/kt-store-main/kt-store-list/div[2]/div/kt-generic-table/div/div[2]/table/tbody/tr[1]/td[7]/button[2]/span/mat-icon")
     public WebElement delete;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public NewStoreWebPageView(WebDriver driver){
+    public NewStoreWebPageView(WebDriver driver) {
         super(driver);
     }
 
-    public void user_name(String username1){
+    public void user_name(String username1) {
         username.sendKeys(username1);
     }
 
-    public void pass_word(String password1){
+    public void pass_word(String password1) {
         password.sendKeys(password1);
     }
 
-    public void log_in() throws InterruptedException {
-        login.click();
-        //  Thread.sleep(2000);
+    public void login_button() {
+        loginbutton.click();
     }
 
-    public void cata_log(){
-        catalog.click();
+    public void Store_Managment() {
+        storeManagment.click();
+
     }
 
-    public void pro_duct(){
-        product.click();
+    public void sto_res() {
+        stores.click();
     }
 
-    public void create_product(){
-        createproduct.click();
+    public void ed_it() {
+        edit.click();
     }
 
-    public void co_de(String code1){
+    public void user_name2(String username2) {
         randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
-        code.sendKeys(code1 + randomInt);
+        username3.sendKeys(username2 + randomInt);
     }
 
-    public void english_name(String name){
-
-        randomGenerator = new Random();
+    public void user_store_name(String userstorename1) {
         int randomInt = randomGenerator.nextInt(1000);
-        englishname.sendKeys(name + randomInt);
-
+        userstorename.sendKeys(userstorename1 + randomInt);
     }
 
-    public void arabic_name(String name1){
-        randomGenerator = new Random();
+    public void em_ail(String email1, String gmail) {
         int randomInt = randomGenerator.nextInt(1000);
-        arabicname.sendKeys(name1 + randomInt);
+        email.sendKeys(email1 + randomInt + gmail);
     }
 
-    public void english_description(String endescription){
-        englishdescription.sendKeys(endescription);
+    public void sel_ect() {
+        select.click();
     }
 
-    public void arabic_description(String ardescription){
-        arabicdescription.sendKeys(ardescription);
+    public void co_de() {
+        code.click();
     }
 
-    public void ordering(String ordering1){
-        randomGenerator = new Random();
+    public void phone_number(String phonenumber1) {
         int randomInt = randomGenerator.nextInt(1000);
-        ordering.sendKeys(ordering1 + randomInt);
+        phonenumber.sendKeys(phonenumber1 + randomInt);
 
     }
 
-    public void select_size_type()
-    {
-        selectsizetype.click();
+    public void new_password(String newpassword1) {
+        newpassword.sendKeys(newpassword1);
     }
 
-    public void size_type()
-    {
-        sizetype.click();
+    public void confirm_password(String confirmpassword1) {
+        confirmpassword.sendKeys(confirmpassword1);
     }
 
-    public void select_size()
-    {
-        selectsize.click();
-    }
-
-    public void si_ze() throws InterruptedException
-    {
-        Thread.sleep(1000);
-        size.click();
-    }
-
-    public void select_tag()
-    {
-        selecttag.click();
-    }
-
-    public void t_ag() throws InterruptedException
-    {
-        Thread.sleep(1000);
-        tag.click();
-    }
-
-    public void select_category() throws InterruptedException
-    {
-        Thread.sleep(1000);
-        selectcategory.click();
-    }
-
-    public void cat_egory() throws InterruptedException
-    {
-        Thread.sleep(1000);
-        category.click();
-    }
-
-    public void unitprice(String unitprice1)
-    {
-        unitprice.sendKeys(unitprice1);
-    }
-
-    public void productimage()
-    {
-       // productimage.sendKeys("C:\\Users\\Mnasat Lab 3\\Desktop\\image for work\\117840576_1944149715727581_8404788777255178443_n.jpg");
-        productimage.sendKeys(System.getProperty("user.dir")+"/src/main/java/PartnerPortal/US05/TestData/zingerchicken.jpg");
-    }
-
-    public void buttonsave(WebDriver driver)
-    {
+    public void pro_cced(WebDriver driver) {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click()", buttonsave);
+        js.executeScript("arguments[0].click()", procced);
     }
 
-    public void delete() throws InterruptedException {
-        Thread.sleep(3000);
-        delete.click();
+    public void store_code(String code) {
+        int randomInt = randomGenerator.nextInt(1000);
+        storecode.sendKeys(code + randomInt);
     }
 
-    public void enter()
-    {
-        try {
-            Robot robot = new Robot();
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-            robot.delay(200);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void commercial_Registration(String commercialRegistration1) {
+        commercialRegistration.sendKeys(commercialRegistration1);
+    }
+
+    public void name_english(String nameenglish1) {
+        nameenglish.sendKeys(nameenglish1);
+    }
+
+    public void name_arabic(String namearabic1) {
+        namearabic.sendKeys(namearabic1);
+    }
+
+    public void description_Enlish(String descriptionEn1) {
+        descriptionEnglish.sendKeys(descriptionEn1);
+    }
+
+    public void description_Arabic(String descriptionAr1) {
+        descriptionArabic.sendKeys(descriptionAr1);
+    }
+
+    public void map_url() {
+        mapurl.sendKeys(Keys.chord(Keys.CONTROL, "v"));
+    }
+
+    public void hot_line(String hotline1) {
+        hotline.sendKeys(hotline1);
+    }
+
+    public void act_ive() {
+        active.click();
+    }
+
+    public void store_logo() {
+        //storelogo.sendKeys("C:\\Users\\Mnasat Lab 3\\Desktop\\image for work\\kfc-png-logo-4094-Transparent-Images.png");
+        storelogo.sendKeys(System.getProperty("user.dir") + "/src/main/java/PartnerPortal/US06/TestData/logo.jpg");
+    }
+
+    public void commerical_Registeration_Photo() throws InterruptedException {
+        // commericalRegisterationPhoto.sendKeys("C:\\Users\\Mnasat Lab 3\\Desktop\\image for work\\CR-OceanPowerTrading-1438.jpg");
+        commericalRegisterationPhoto.sendKeys(System.getProperty("user.dir") + "/src/main/java/PartnerPortal/US06/TestData/CR-OceanPowerTrading-1438.jpg");
+    }
+        public void store_cover()
+        {
+           // storecover.sendKeys("C:\\Users\\Mnasat Lab 3\\Desktop\\image for work\\cover.png");
+            storecover.sendKeys(System.getProperty("user.dir") + "/src/main/java/PartnerPortal/US06/TestData/kfc-png-logo-4094-Transparent-Images.png");
+
         }
+
+        public void pro_cced1 (WebDriver driver)
+        {
+
+            JavascriptExecutor js1 = (JavascriptExecutor) driver;
+            js1.executeScript("arguments[0].click()", procced1);
+        }
+
+        public void sa_ve1 (WebDriver driver)
+        {
+            JavascriptExecutor js2 = (JavascriptExecutor) driver;
+            js2.executeScript("arguments[0].click()", save1);
+        }
+
+        public void delete () throws InterruptedException {
+            Thread.sleep(3000);
+            delete.click();
+        }
+
+        public void enter ()
+        {
+            try {
+                Robot robot = new Robot();
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+                robot.delay(200);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
 
-}

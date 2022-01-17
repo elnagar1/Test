@@ -1,13 +1,10 @@
 package PartnerPortal.US04.TestCases;
 
 import Framework.Web.TestBaseWeb;
-import PartnerPortal.US01.ViewModel.LoginWebPageView;
-import PartnerPortal.US03.ViewModel.SizeTypeWebPageView;
 import PartnerPortal.US04.ViewModel.SizeWebPageView;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC01 extends TestBaseWeb {
+public class TCH01 extends TestBaseWeb {
 
     SizeWebPageView SizePage;
 

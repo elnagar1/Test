@@ -1,13 +1,16 @@
 package PartnerPortal.US01.TestCases;
 
+import Framework.Web.Driver_Manager;
 import Framework.Web.TestBaseWeb;
 import PartnerPortal.US01.ViewModel.LoginWebPageView;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC05 extends TestBaseWeb {
+public class TC05  {
 
     LoginWebPageView loginPage;
+    WebDriver driver = Driver_Manager.getDriver();
 
     @Test(priority = 5)
     public void EmailIsRequierd() throws InterruptedException {

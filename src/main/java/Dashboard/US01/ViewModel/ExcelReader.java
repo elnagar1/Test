@@ -1,4 +1,4 @@
-package Framework;
+package Dashboard.US01.ViewModel;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -15,7 +15,7 @@ public class ExcelReader {
 	
 	public FileInputStream getFileInputStream() 
 	{
-		String filePath = System.getProperty("user.dir")+"/src/main/java/Courier_App/US01/TestData/TC01UserData.xlsx";
+		String filePath = System.getProperty("user.dir")+"/src/main/java/Dashboard/US01/TestData/TC01UserData.xlsx";
 		File srcFile = new File(filePath);
 		
 		try {
@@ -31,11 +31,11 @@ public class ExcelReader {
 	{
 		fis = getFileInputStream(); 
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
-		XSSFSheet sheet = wb.getSheetAt(0);
+		XSSFSheet sheet = wb.getSheetAt(0); 
+		
+
 		int TotalNumberOfRows = (sheet.getLastRowNum()+1);
 		int TotalNumberOfCols = (sheet.getRow(0).getLastCellNum());
-	/*	int TotalNumberOfRows = (sheet.getLastRowNum()+1);
-		int TotalNumberOfCols = 4 ; */
 		
 		String[][] arrayExcelData = new String[TotalNumberOfRows][TotalNumberOfCols] ; 
 		

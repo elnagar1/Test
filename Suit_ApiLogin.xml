@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="_ApiLogin">
+    <test name="API Test" preserve-order="false">
+        <classes>
+            <class name="Dashboard.USE14599.TestCases.TC001" />
+            <class name="Dashboard.USE14599.TestCases.TC002" />
+            <class name="Dashboard.USE14599.TestCases.TC003" />
+            <class name="Dashboard.USE14599.TestCases.TC004" />
+            <class name="Dashboard.USE14599.TestCases.TC005" />
+
+
+        </classes>
+    </test>
+</suite>

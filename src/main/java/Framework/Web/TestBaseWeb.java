@@ -1,6 +1,6 @@
 package Framework.Web;
 
-import Courier_App.US01.ViewModel.LoginPageView;
+import Dashboard.US01.ViewModel.LoginPageView;
 import Framework.Helper;
 
 import io.github.bonigarcia.wdm.WebDriverManager;

@@ -7,16 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.sql.DriverManager;
 
-public class TC01  {
+public class TC01 extends TestBaseWeb {
 
     LoginWebPageView loginPage;
     WebDriver driver = Driver_Manager.getDriver();
 
     @Test(priority = 1)
     public void WrongPassword() throws InterruptedException {
-      //  driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
+        driver.navigate().to("https://partner-dev.shgardi.app/auth/login");
 
         loginPage = new LoginWebPageView(driver);
         loginPage.AddUserName("dairyqueen");

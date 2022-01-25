@@ -25,7 +25,7 @@ public class TC01 extends TestBaseWeb {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("btn_login kt_login_signin_submit")).click();
-        Waits.setImplicitWait(4);
+
      //   WebElement element = driver.findElement(By.id("kt_aside_menu"));
    //     Waits.waitUntilElementLocated(5, driver, element);
    //     Actions action = new Actions(driver);

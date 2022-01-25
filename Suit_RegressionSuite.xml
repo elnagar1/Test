@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name=" ">
-	<parameter name="browser" value="chrome-headless" />
+<suite name="test1">
+	<parameter name="browser" value="chrome" />
 	<test name="Regression Test" preserve-order="false">
 		<classes>
-			<class name="PartnerPortal.US01.TestCases.TC01" />
-			<class name="PartnerPortal.US01.TestCases.TC02" />
+			<class name="Dashboard.US01.TestCases.TC01" />
+			<class name="Dashboard.US01.TestCases.TC02" />
 
 		</classes>
 	</test>

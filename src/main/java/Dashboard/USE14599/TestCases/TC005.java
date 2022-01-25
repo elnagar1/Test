@@ -1,6 +1,8 @@
 package Dashboard.USE14599.TestCases;
 
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
@@ -10,48 +12,52 @@ import static io.restassured.RestAssured.given;
 public class  TC005 {
 
 
-    @Test
-    public void LoginWithEmptyPasswordEN() throws Exception {
+    String token;
+
+    public void LoginApiStatusEn() {
         JSONObject requestParams = new JSONObject();
-        requestParams.put("email", "mohamed.abdelhy@shgardi.app");
-        requestParams.put("password", "");
-        requestParams.put("rememberMe", "true");
+        requestParams.put("phoneNumber", "01012661525");
+        requestParams.put("userType", " 1");
+        requestParams.put("deviceType", "Android");
+        requestParams.put("fcmToken", "string");
+        requestParams.put("userVerificationId", "string");
+        requestParams.put("fromShgardiWeb", true);
 
 
-        given()
+        Response response = given()
                 .contentType(ContentType.JSON)
-                .header("accept-language", "en-US")
                 .body(requestParams.toJSONString())
                 .when()
-                .post("https://api-dev.shgardi.app/identity/api/2.0/DashboardAccount/User/adminlogin")
-                .then()
-                .log().body()
-                .assertThat().statusCode(400)
-                .assertThat().body("status", Matchers.equalTo("Failure"))
-                .assertThat().body("message", Matchers.equalTo(""))
-                .assertThat().body("response.errors.Password[0]", Matchers.equalTo("Password is Required"));
+                .post("https://api-dev.shgardi.app/identity/api/2/Account/login");
+
+        JsonPath jsonPath = new JsonPath(response.asString());
+        token = jsonPath.getString("response.accessToken");
+        System.out.println(token);
+
 
     }
+
     @Test
-    public void LoginWithEmptyPasswordAR() throws Exception {
+    public void LoginApiStatu() {
+        LoginApiStatusEn();
         JSONObject requestParams = new JSONObject();
-        requestParams.put("email", "mohamed.abdelhy@shgardi.app");
-        requestParams.put("password", "");
-        requestParams.put("rememberMe", "false");
+        requestParams.put("phoneNumber", "01012661525");
+        requestParams.put("password", "a12345678");
+        requestParams.put("userType", "1");
+        requestParams.put("deviceType", "Android");
+        requestParams.put("fcmToken", token);
+
+
+
 
 
         given()
                 .contentType(ContentType.JSON)
-                .header("accept-language", "AR")
                 .body(requestParams.toJSONString())
                 .when()
-                .post("https://api-dev.shgardi.app/identity/api/2.0/DashboardAccount/User/adminlogin")
-                .then()
-                .log().body()
-                .assertThat().statusCode(400)
-                .assertThat().body("status", Matchers.equalTo("Failure"))
-                .assertThat().body("message", Matchers.equalTo(""))
-                .assertThat().body("response.errors.Password[0]", Matchers.equalTo("Password is Required"));
+                .post("https://api-dev.shgardi.app/identity/api/2/Account/LoginWithPassword")
+                .then().log().body();
+
 
     }
 }

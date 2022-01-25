@@ -9,9 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 
 import java.util.concurrent.TimeUnit;
@@ -22,7 +20,7 @@ public class TestBaseWeb {
 
     public String USERNAME = PageBaseWeb.reader.getR_User();
     public String ACCESS_KEY = PageBaseWeb.reader.getR_Password();
-    String browser = PageBaseWeb.reader.getBrowser().toLowerCase();
+   // String browser = PageBaseWeb.reader.getBrowser().toLowerCase();
     // public static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
 
     //مؤجل
@@ -47,9 +45,10 @@ public class TestBaseWeb {
 		return options;
 	}
 */
+    @BeforeSuite
+    @Parameters({"browser"})
 
-    @BeforeClass
-    public void startDriver() {
+    public void startDriver(@Optional("chrome") String browser) {
         if (driver == null) {
             System.out.println("Selected Browser is: " + browser);
 
